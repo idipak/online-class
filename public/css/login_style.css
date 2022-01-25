@@ -1,0 +1,75 @@
+*{
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  header{
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .background{
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  }
+
+  .glass{
+    height: 60vh;
+    width: 60%;
+    border-radius: 16px;
+    z-index: 3;
+    backdrop-filter:blur(20px);
+    background: linear-gradient(to right top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.3));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .circle1, .circle2{
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
+  }
+  
+  .circle1{
+    bottom: 10%;
+    left: 15%;
+  }
+  
+  .circle2{
+    top: 10%;
+    right: 15%;
+  }
+  
+  input{
+    border: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 16px;
+  }
+  
+  input[type=text], [type=password]{
+    background-color: rgba(0, 0, 0, 0.1);
+    /* background: linear-gradient(rgba(165, 0, 0, 0.2), rgba(255, 0, 0, 0.4)); */
+  }
+  
+  
+  input[type=submit]{
+    width: 80px;
+    background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+  }
+  
+  form{
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+  }
+  

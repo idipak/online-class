@@ -1,0 +1,21 @@
+<%- include('partial/minimal_header'); -%>
+
+<header class="background d-flex justify-content-md-center align-items-center">
+    <div class="">
+        <section class="glass-sm">
+            <form class="" action="/registration" method="POST">
+                <h2 class="row">Signup as:</h2>
+              <select name="type" class="form-select row justify-content-md-center" aria-label="Default select example">
+                  <option value="company">Company</option>
+                  <option value="admin">Admin</option>
+                  <option value="teacher">Teacher</option>
+                  <option value="student" selected>Student</option>
+                </select>
+                
+                <input class="row button mt-2" type="submit" value="Next >">
+            </form>
+          </section>
+    </div>
+  </header>
+
+<%- include('partial/minimal_footer'); -%>
