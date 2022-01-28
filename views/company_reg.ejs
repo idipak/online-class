@@ -1,1 +1,26 @@
-<h1>Company</h1>
+<%- include('partial/minimal_header'); -%>
+
+<div class="background d-flex justify-content-md-center align-items-center">
+    <div class="container glass">
+      <h1>Comapny Registration</h1>
+        <form class="row g-3 needs-validation" action="/company-reg" method="POST">
+            <div class="col-md-6">
+              <label for="sName" class="form-label">Name</label>
+              <input type="text" class="form-control" id="sName" name="name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="inputPassword4" class="form-label">Password</label>
+              <input type="password" class="form-control" id="inputPassword4" name="password" required>
+            </div>
+            <div class="col-md-6">
+              <label for="mobile" class="form-label">Mobile Numer</label>
+              <input type="text" class="form-control" id="mobile" name="mobile">
+            </div>
+            <div class="col-12">
+              <button type="submit" class="button">Register Me Now</button>
+            </div>
+          </form>
+    </div>
+</div>
+
+<%- include('partial/minimal_footer'); -%>

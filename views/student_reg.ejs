@@ -2,48 +2,46 @@
 
 <div class="background d-flex justify-content-md-center align-items-center">
     <div class="container glass">
-        <form class="row g-3">
+      <h1>Student Registration</h1>
+        <form class="row g-3 needs-validation" action="/student-reg" method="POST">
             <div class="col-md-6">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4">
+              <label for="sName" class="form-label">Student Name</label>
+              <input type="text" class="form-control" id="sName" name="name" required>
+            </div>
+            <div class="col-md-6">
+              <label for="class" class="form-label">Class</label>
+              <input type="number" class="form-control" id="class" name="s_class" required>
+            </div>
+            <div class="col-md-6">
+              <label for="father" class="form-label">Father Name</label>
+              <input type="text" class="form-control" id="father" name="father_name">
+            </div>
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input type="text" class="form-control" id="city" name="city">
+            </div>
+            <div class="col-md-6">
+              <label for="rollNumber" class="form-label">Roll Number</label>
+              <input type="number" class="form-control" id="rollNumber" name="roll" required>
             </div>
             <div class="col-md-6">
               <label for="inputPassword4" class="form-label">Password</label>
-              <input type="password" class="form-control" id="inputPassword4">
-            </div>
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">Address</label>
-              <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="col-12">
-              <label for="inputAddress2" class="form-label">Address 2</label>
-              <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+              <input type="password" class="form-control" id="inputPassword4" name="password" required>
             </div>
             <div class="col-md-6">
-              <label for="inputCity" class="form-label">City</label>
-              <input type="text" class="form-control" id="inputCity">
+              <label for="inputCity" class="form-label">DOB</label>
+              <input type="date" class="form-control" id="inputCity" name="dob">
             </div>
-            <div class="col-md-4">
-              <label for="inputState" class="form-label">State</label>
-              <select id="inputState" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-              </select>
-            </div>
-            <div class="col-md-2">
-              <label for="inputZip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="inputZip">
+            <div class="col-md-6">
+              <label for="mobile" class="form-label">Mobile Numer</label>
+              <input type="text" class="form-control" id="mobile" name="mobile">
             </div>
             <div class="col-12">
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                  Check me out
-                </label>
-              </div>
+              <label for="comment" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="comment" name="comment">
             </div>
             <div class="col-12">
-              <button type="submit" class="button">Sign in</button>
+              <button type="submit" class="button">Register Me Now</button>
             </div>
           </form>
     </div>
