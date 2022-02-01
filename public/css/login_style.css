@@ -17,7 +17,7 @@
   }
 
   .glass{
-    height: 60vh;
+    height: 66vh;
     width: 60%;
     border-radius: 16px;
     z-index: 3;
@@ -55,10 +55,10 @@
     border-radius: 16px;
   }
   
-  input[type=text], [type=password]{
-    background-color: rgba(0, 0, 0, 0.1);
+  /* input[type=text], [type=password]{ */
+    /* background-color: rgba(0, 0, 0, 0.1); */
     /* background: linear-gradient(rgba(165, 0, 0, 0.2), rgba(255, 0, 0, 0.4)); */
-  }
+  /* } */
   
   
   input[type=submit]{
@@ -71,5 +71,24 @@
     display: flex;
     flex-direction: column;
     padding: 50px;
+  }
+
+  .sing-up{
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    opacity: 0.8;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: normal;
+  }
+
+  .sing-up a{
+    text-decoration: none;
+    font-weight: normal;
+  }
+
+  .hero-title{
+    padding: 20px;
   }
   

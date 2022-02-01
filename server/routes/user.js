@@ -10,6 +10,8 @@ router.post('/', userController.loginRequest);
 router.get('/registration', userController.registraionOption);
 router.post('/registration', userController.registration);
 
+router.get('/dashboard', userController.dashboard);
+
 router.get('/admin-reg', userController.adminReg);
 router.post('/admin-reg', userController.adminSave);
 
@@ -25,5 +27,9 @@ router.post('/student-reg', userController.studentSave);
 router.get('/student', studentController.home);
 
 router.get('/success', userController.success);
+
+router.get('/failed', userController.failed);
+
+router.post('/post', userController.post);
 
 module.exports = router;

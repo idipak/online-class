@@ -10,3 +10,6 @@ CREATE TABLE teacher(t_id INT NOT NULL AUTO_INCREMENT, t_pass VARCHAR(50) NOT NU
 
 -- Create table for admin
 CREATE TABLE admin(admin_id INT NOT NULL AUTO_INCREMENT, name VARCHAR(50) NOT NULL, city VARCHAR(50), PRIMARY KEY (admin_id));
+
+-- Create table for post
+CREATE TABLE post(Post_Id INT NOT NULL AUTO_INCREMENT, Content VARCHAR(255) NOT NULL, Post_By VARCHAR(50) NOT NULL, Profile_Url VARCHAR(255) NOT NULL, Post_By_Id INT NOT NULL, PRIMARY KEY (Post_Id));

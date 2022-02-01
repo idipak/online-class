@@ -9,13 +9,76 @@ const pool = mysql.createPool({
     database           : process.env.DB_NAME
 });
 
+var userId;
+var tableName;
+var role;
 
 exports.login = (req, res) =>{
     res.render("login");
 }
 
 exports.loginRequest = (req, res) =>{
-    res.send(req.body);
+    var user = req.body.id;
+    var pass = req.body.password;
+    
+    pool.getConnection((err, connection) => {
+        if(err) throw err;
+
+        if(user && pass){
+            connection.query('SELECT * FROM student_reg WHERE mobile = ? AND password = ?', [user, pass], (error, result, fields) =>{
+                if(result.length > 0){
+                    userId = user;
+                    tableName = 'student_reg';
+                    role = 'Student';
+                    res.redirect('dashboard');
+                } else{
+                    connection.query('SELECT * FROM teacher WHERE mobile =  ? AND t_pass = ?', [user, pass], (err, result, fields) =>{
+                        if(result.length > 0){
+                            userId = user;
+                            tableName = 'teacher';
+                            role = 'Teacher';
+                            res.redirect('dashboard');
+                        } else {
+                            connection.query('SELECT * FROM admin WHERE mobile =  ? AND password = ?', [user, pass], (err, result, fields) =>{
+                                if(result.length > 0){
+                                    userId = user;
+                                    tableName = 'admin';
+                                    role = 'Admin';
+                                    res.redirect('dashboard');
+                                } else {
+                                    connection.query('SELECT * FROM company WHERE mobile =  ? AND password = ?', [user, pass], (err, result, fields) =>{
+                                        if(result.length > 0){
+                                            userId = user;
+                                            tableName = 'company';
+                                            role = 'Company';
+                                            res.redirect('dashboard');
+                                        } else{
+                                            res.redirect('failed');
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        } else {
+            res.redirect('failed');
+        }
+    });
+}
+
+exports.dashboard = (req, res) => {
+    
+    pool.getConnection((err, connection) =>{
+        if(err) throw err;
+
+        connection.query(`SELECT * FROM ${tableName} WHERE mobile = ${userId}`, (err, result) =>{
+            console.log(result[0].name);
+            res.render("dashboard", {name : result[0].name, id : userId, role : role, profile: result[0].Profile_Url});
+        });
+    });
+
 }
 
 exports.registraionOption = (req, res) =>{
@@ -106,6 +169,15 @@ exports.studentSave = (req, res) => {
     });
 }
 
+exports.post = (req, res) => {
+    var post = req.body.post;
+    
+    pool.getConnection((err, connection) =>{
+        if(err) throw err;
+        connection.query('INSERT INTO post SET Content  = ?, Post_By = ? Profile_Url = ?, Post_By_Id = ?', [post, '', ])
+    });
+}
+
 exports.registration = (req, res) => {
     res.redirect(`${req.body.type}-reg`);
     console.log(req.body.type);
@@ -113,4 +185,8 @@ exports.registration = (req, res) => {
 
 exports.success = (req, res) => {
     res.render("reg_success");
+}
+
+exports.failed = (req, res) => {
+    res.render("failed_msg");
 }

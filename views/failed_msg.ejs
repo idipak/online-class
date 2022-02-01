@@ -1,0 +1,16 @@
+<%- include('partial/minimal_header'); -%>
+
+<header class="background d-flex justify-content-md-center align-items-center">
+    <div class="">
+        <section class="glass-sm">
+            <div class="alert alert-danger" role="alert">
+                Login Failed! Please try again with correct user id and password.
+              </div>
+            <form action="/" method="get">
+                <input type="submit" value="Retry" class="btn btn-primary" name="login">
+            </form>
+        </section>
+    </div>
+  </header>
+
+<%- include('partial/minimal_footer'); -%>
